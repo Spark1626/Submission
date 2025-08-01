@@ -1,1 +1,296 @@
-# Submission
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qualrec solution - Document Submission</title>
+    <!-- Use Tailwind CSS for modern styling and Inter font -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f3f4f6; /* A slightly softer background color */
+            background-image: linear-gradient(to bottom right, #e0f2fe, #bfdbfe);
+        }
+        /* Custom styles for the file input to make it look nicer */
+        input[type="file"]::file-selector-button {
+            @apply bg-indigo-600 text-white font-semibold py-2 px-4 rounded-full cursor-pointer transition-colors duration-300 hover:bg-indigo-700 shadow-lg;
+        }
+        /* Style for the date input placeholder */
+        input[type="date"]::-webkit-datetime-edit-text {
+            color: #9ca3af;
+        }
+        input[type="date"]::-webkit-datetime-edit-month-field,
+        input[type="date"]::-webkit-datetime-edit-day-field,
+        input[type="date"]::-webkit-datetime-edit-year-field {
+            color: black;
+        }
+        /* Gradient for the slogan text */
+        .slogan-gradient {
+            background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        /* Animation for the success modal */
+        @keyframes fade-in-up {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .animate-fade-in-up {
+            animation: fade-in-up 0.5s ease-out forwards;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen p-4">
+    <div class="bg-white p-8 rounded-3xl shadow-2xl w-full max-w-3xl border border-gray-200 backdrop-blur-sm bg-white/80">
+        <!-- Company Header with Logo and Slogan -->
+        <div class="text-center mb-8 pb-4 border-b-2 border-blue-100">
+            <!-- The logo uses the provided image content -->
+            <img src="https://github.com/Spark1626/Submission/blob/main/illustration-16.png" alt="Qualrec Solution Logo - We deliver Quality" class="mx-auto w-40 h-auto mb-4 drop-shadow-xl transition-transform duration-300 hover:scale-105">
+            <h1 class="text-5xl font-extrabold text-gray-900 mb-2 tracking-tight">Qualrec solution</h1>
+            <p class="text-2xl font-medium slogan-gradient tracking-wide drop-shadow-sm">Strategize. Organize. Globalize.</p>
+            <p class="text-md text-gray-500 italic mt-2">We deliver Quality</p>
+        </div>
+        
+        <form id="submissionForm" class="space-y-6">
+            <!-- Name Field -->
+            <div class="input-group">
+                <label for="name" class="block text-md font-bold text-gray-700 mb-2">1. Name</label>
+                <input type="text" id="name" name="name" required
+                       placeholder="Enter your full name"
+                       class="mt-1 block w-full px-4 py-3 border-2 border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all duration-200">
+            </div>
+
+            <!-- Title Field -->
+            <div class="input-group">
+                <label for="title" class="block text-md font-bold text-gray-700 mb-2">2. Title</label>
+                <input type="text" id="title" name="title" required
+                       placeholder="Enter your answer"
+                       class="mt-1 block w-full px-4 py-3 border-2 border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all duration-200">
+            </div>
+
+            <!-- New fields for Number and Email -->
+            <div class="input-group">
+                <label for="number" class="block text-md font-bold text-gray-700 mb-2">3. Number</label>
+                <input type="text" id="number" name="number" required
+                       placeholder="Enter your phone number"
+                       class="mt-1 block w-full px-4 py-3 border-2 border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all duration-200">
+            </div>
+
+            <div class="input-group">
+                <label for="email" class="block text-md font-bold text-gray-700 mb-2">4. Email</label>
+                <input type="email" id="email" name="email" required
+                       placeholder="Enter your email address"
+                       class="mt-1 block w-full px-4 py-3 border-2 border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 transition-all duration-200">
+            </div>
+
+            <!-- Stating Date Field -->
+            <div class="input-group">
+                <label for="statingDate" class="block text-md font-bold text-gray-700 mb-2">5. Stating Date</label>
+                <input type="date" id="statingDate" name="statingDate" required
+                       class="mt-1 block w-full px-4 py-3 border-2 border-gray-300 rounded-xl shadow-inner focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:border-indigo-400 text-gray-500 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Please input date (dd/MM/yyyy)</p>
+            </div>
+
+            <!-- File Uploads Section -->
+            <!-- Aadhar Card 1 -->
+            <div class="input-group">
+                <label for="aadharCard1" class="block text-md font-bold text-gray-700 mb-2">6. Aadhar Card</label>
+                <input type="file" id="aadharCard1" name="aadharCard1" required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+
+            <!-- Aadhar Card 2 -->
+            <div class="input-group">
+                <label for="aadharCard2" class="block text-md font-bold text-gray-700 mb-2">7. Aadhar Card</label>
+                <input type="file" id="aadharCard2" name="aadharCard2" required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+
+            <!-- Aadhar Card 3 -->
+            <div class="input-group">
+                <label for="aadharCard3" class="block text-md font-bold text-gray-700 mb-2">8. Aadhar Card</label>
+                <input type="file" id="aadharCard3" name="aadharCard3" required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+            
+            <!-- Pan Card -->
+            <div class="input-group">
+                <label for="panCard" class="block text-md font-bold text-gray-700 mb-2">9. Pan Card</label>
+                <input type="file" id="panCard" name="panCard" required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+
+            <!-- All Marksheet -->
+            <div class="input-group">
+                <label for="allMarksheet" class="block text-md font-bold text-gray-700 mb-2">10. All Marksheet</label>
+                <input type="file" id="allMarksheet" name="allMarksheet" multiple required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">File number limit: 5 | Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+
+            <!-- Driving Licence (DL) -->
+            <div class="input-group">
+                <label for="drivingLicence" class="block text-md font-bold text-gray-700 mb-2">11. Driving Licence (DL)</label>
+                <input type="file" id="drivingLicence" name="drivingLicence" required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+            
+            <!-- Payslip of 3 Months -->
+            <div class="input-group">
+                <label for="payslip" class="block text-md font-bold text-gray-700 mb-2">12. Payslip of 3 Months</label>
+                <input type="file" id="payslip" name="payslip" required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+
+            <!-- Leaving letter -->
+            <div class="input-group">
+                <label for="leavingLetter" class="block text-md font-bold text-gray-700 mb-2">13. Leaving letter</label>
+                <input type="file" id="leavingLetter" name="leavingLetter" required
+                       class="mt-1 block w-full text-gray-600 file:border-0 file:rounded-xl file:bg-indigo-100 file:text-indigo-700 hover:file:bg-indigo-200 transition-all duration-200">
+                <p class="mt-1 text-sm text-gray-500">Single file size limit: 10MB | Allowed file types: Word, Excel, PPT, PDF, Image, Video, Audio</p>
+            </div>
+            
+            <!-- Submission Button -->
+            <button type="submit" id="submitBtn"
+                    class="w-full py-4 mt-6 bg-gradient-to-r from-blue-500 to-indigo-600 text-white rounded-2xl font-bold text-lg hover:from-blue-600 hover:to-indigo-700 transition-all duration-300 focus:outline-none focus:ring-4 focus:ring-indigo-300 shadow-xl hover:shadow-2xl transform hover:scale-105">
+                Submit Documents
+            </button>
+
+            <!-- Loading Spinner and Message Container -->
+            <div id="statusContainer" class="mt-4 text-center">
+                <div id="loading" class="hidden animate-spin rounded-full h-8 w-8 border-t-2 border-b-2 border-indigo-500 mx-auto"></div>
+                <p id="message" class="mt-2 text-md font-medium text-gray-600"></p>
+            </div>
+        </form>
+    </div>
+
+    <!-- Success Modal -->
+    <div id="successModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white p-8 rounded-2xl shadow-2xl text-center max-w-sm w-full animate-fade-in-up">
+            <svg class="mx-auto h-20 w-20 text-green-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2l4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+            <h3 class="text-2xl font-bold mt-4 text-gray-800">Submission Successful!</h3>
+            <p class="mt-2 text-md text-gray-600">Your documents have been processed and saved securely.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('submissionForm').addEventListener('submit', async function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            const form = event.target;
+            const loadingSpinner = document.getElementById('loading');
+            const messageElement = document.getElementById('message');
+            const successModal = document.getElementById('successModal');
+
+            // Reset UI state
+            messageElement.textContent = '';
+            successModal.classList.add('hidden');
+            
+            // Show loading state
+            loadingSpinner.classList.remove('hidden');
+            messageElement.textContent = 'Processing your submission...';
+            messageElement.classList.remove('text-green-600', 'text-red-600');
+            messageElement.classList.add('text-gray-600');
+
+            // File validation rules
+            const maxFileSize = 10 * 1024 * 1024; // 10MB in bytes
+            const allowedFileTypes = [
+                'application/msword', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', // Word
+                'application/vnd.ms-excel', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', // Excel
+                'application/vnd.ms-powerpoint', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', // PPT
+                'application/pdf', // PDF
+                'image/*', 'video/*', 'audio/*' // Images, Videos, Audio
+            ];
+            
+            // Validate the number of files for Markshet
+            const marksheetInput = document.getElementById('allMarksheet');
+            if (marksheetInput.files.length > 5) {
+                loadingSpinner.classList.add('hidden');
+                messageElement.textContent = `Error: You can upload a maximum of 5 files for All Marksheet.`;
+                messageElement.classList.remove('text-gray-600');
+                messageElement.classList.add('text-red-600');
+                return;
+            }
+
+            // General file size and type validation
+            const files = Array.from(form.querySelectorAll('input[type="file"]')).flatMap(input => Array.from(input.files));
+            for (const file of files) {
+                if (file.size > maxFileSize) {
+                    loadingSpinner.classList.add('hidden');
+                    messageElement.textContent = `Error: File '${file.name}' is too large. Max size is 10MB.`;
+                    messageElement.classList.remove('text-gray-600');
+                    messageElement.classList.add('text-red-600');
+                    return; // Stop processing
+                }
+                const fileType = file.type;
+                let isValidType = false;
+                for (const allowedType of allowedFileTypes) {
+                    if (allowedType.endsWith('/*')) {
+                        if (fileType.startsWith(allowedType.slice(0, -1))) {
+                            isValidType = true;
+                            break;
+                        }
+                    } else if (fileType === allowedType) {
+                        isValidType = true;
+                        break;
+                    }
+                }
+                if (!isValidType) {
+                    loadingSpinner.classList.add('hidden');
+                    messageElement.textContent = `Error: File '${file.name}' has an unsupported file type.`;
+                    messageElement.classList.remove('text-gray-600');
+                    messageElement.classList.add('text-red-600');
+                    return; // Stop processing
+                }
+            }
+
+            // Create a FormData object to simulate a real submission
+            const formData = new FormData(form);
+
+            // Log the form data to the console for demonstration
+            console.log("--- Simulating Form Submission ---");
+            for (let [key, value] of formData.entries()) {
+                if (value instanceof File) {
+                    console.log(`Field: ${key}, File: ${value.name}, Size: ${value.size} bytes, Type: ${value.type}`);
+                } else {
+                    console.log(`Field: ${key}, Value: ${value}`);
+                }
+            }
+            console.log("--- End of Simulation ---");
+
+            // Simulate a successful API call with a delay
+            setTimeout(() => {
+                loadingSpinner.classList.add('hidden');
+                messageElement.textContent = ''; // Clear loading text
+                successModal.classList.remove('hidden'); // Show the success modal
+                form.reset(); // Clear the form after successful submission
+                
+                // Hide the modal after a few seconds
+                setTimeout(() => {
+                    successModal.classList.add('hidden');
+                }, 4000); 
+
+            }, 2500); // 2.5 second delay
+        });
+    </script>
+</body>
+</html>
